@@ -8,6 +8,7 @@ return {
     -- you can set set configuration options here
     config = function()
       vim.g.zenbones_darkness = "stark"
+      vim.g.zenbones_transparent_background = true
     end,
   },
   {
@@ -15,6 +16,10 @@ return {
     event = "VeryLazy",
     opts = function(_, opts)
       local custom_zenbones = require("lualine.themes.zenbones")
+      -- Change the background of lualine sections
+      custom_zenbones.normal.a.bg = "NONE"
+      custom_zenbones.normal.b.bg = "NONE"
+      custom_zenbones.normal.c.bg = "NONE"
       table.insert(opts.options, { theme = "zenbones" })
     end,
   },
