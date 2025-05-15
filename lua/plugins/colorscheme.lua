@@ -1,36 +1,27 @@
 return {
   {
-    "nvhai245/eyes.nvim",
+    "zenbones-theme/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = "rktjmp/lush.nvim",
+    -- you can set set configuration options here
     config = function()
-      require("eyes").setup({
-        extend = {
-          highlights = {
-            Normal = { fg = "#D0D0D0" },
-            CursorLine = { bg = "#202020" },
-            Type = { italic = true },
-          },
-          palette = {
-            hex00 = "#000000",
-            hex01 = "#101010",
-            hex02 = "#505050",
-            hex03 = "#606060",
-            hex04 = "#404040", -- commments
-            hex05 = "#808080",
-            hex06 = "#606060", -- keywords and brackets
-            hex07 = "#505050", -- lib
-            hex08 = "#F0F0F0", -- string
-            hex09 = "#C0C0C0", -- functions
-            hex10 = "#D0D0D0",
-          },
-        },
-      })
+      vim.g.zenbones_darkness = "stark"
     end,
   },
-
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      local custom_zenbones = require("lualine.themes.zenbones")
+      table.insert(opts.options, { theme = "zenbones" })
+    end,
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "eyes",
+      colorscheme = "zenbones",
     },
   },
 }
