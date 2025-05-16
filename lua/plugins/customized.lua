@@ -14,21 +14,6 @@ return {
     },
   },
   {
-    "lawrence-laz/neotest-zig",
-    config = function()
-      require("neotest").setup({
-        adapters = {
-          -- Registration
-          require("neotest-zig")({
-            dap = {
-              adapter = "codelldb",
-            },
-          }),
-        },
-      })
-    end,
-  },
-  {
     "snacks.nvim",
     opts = {
       dashboard = {
