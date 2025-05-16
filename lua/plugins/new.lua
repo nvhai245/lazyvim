@@ -28,7 +28,9 @@ return {
           name = "Launch",
           type = "codelldb",
           request = "launch",
-          program = "${workspaceFolder}/zig-out/bin/${fileBasenameNoExtension}",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/zig-out/", "file")
+          end,
           cwd = "${workspaceFolder}",
           stopOnEntry = false,
           args = {},
