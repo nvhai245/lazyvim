@@ -45,4 +45,8 @@ return {
       { "<leader>gv", "<cmd>DiffviewOpen<cr>", desc = "Diffview Mergetool" },
     },
   },
+  {
+    "romainl/vim-cool",
+    event = { "VeryLazy" },
+  },
 }
