@@ -2,9 +2,20 @@ return {
   {
     "slugbyte/lackluster.nvim",
     config = function()
-      require("lackluster").setup({
+      local lackluster = require("lackluster")
+      local color = lackluster.color
+      lackluster.setup({
         disable_plugin = {
           bufferline = true,
+        },
+        tweak_background = {
+          normal = color.black, -- main background
+          -- normal = 'none',    -- transparent
+          -- normal = '#a1b2c3',    -- hexcode
+          -- normal = color.green,    -- lackluster color
+          telescope = color.black, -- telescope
+          menu = color.gray2, -- nvim_cmp, wildmenu ... (bad idea to transparent)
+          popup = color.black, -- lazy, mason, whichkey ... (bad idea to transparent)
         },
       })
     end,

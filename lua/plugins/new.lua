@@ -36,4 +36,11 @@ return {
       }
     end,
   },
+  {
+    "sindrets/diffview.nvim",
+    event = { "VeryLazy" },
+    keys = {
+      { "<leader>gv", "<cmd>DiffviewOpen<cr>", desc = "Diffview Mergetool" },
+    },
+  },
 }

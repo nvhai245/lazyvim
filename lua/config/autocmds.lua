@@ -19,5 +19,5 @@ autocmd({ "CmdlineEnter", "TabLeave", "TermOpen", "FocusLost", "TabNew", "WinNew
 -- open snacks explorer
 autocmd({ "SessionLoadPost" }, {
   pattern = "*",
-  command = "lua require('snacks').explorer.open({focus = false})",
+  command = "lua require('snacks').explorer.open({focus = 'list', follow_file = true, ignored = true, hidden = true})",
 })
