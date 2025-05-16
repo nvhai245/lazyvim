@@ -8,6 +8,12 @@ return {
     },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
+  {
     "lawrence-laz/neotest-zig",
     config = function()
       require("neotest").setup({
