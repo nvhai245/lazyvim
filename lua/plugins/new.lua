@@ -42,11 +42,17 @@ return {
     "sindrets/diffview.nvim",
     event = { "VeryLazy" },
     keys = {
-      { "<leader>gv", "<cmd>DiffviewOpen<cr>", desc = "Diffview Mergetool" },
+      { "<leader>gm", "<cmd>DiffviewOpen<cr>", desc = "Diffview Mergetool" },
     },
   },
   {
     "romainl/vim-cool",
     event = { "VeryLazy" },
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
   },
 }
