@@ -1,64 +1,9 @@
 return {
   {
-    "folke/noice.nvim",
-    opts = {
-      presets = {
-        lsp_doc_border = true,
-      },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = { enabled = false },
-    },
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    dependencies = {
-      "lawrence-laz/neotest-zig", -- Installation
-      "nvim-neotest/nvim-nio",
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-    },
-    opts = function(_, opts)
-      table.insert(
-        opts.adapters,
-        require("neotest-zig")({
-          dap = {
-            adapter = "codelldb",
-          },
-        })
-      )
-      table.insert(opts, { log_level = vim.log.levels.TRACE })
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "folke/snacks.nvim" },
-    config = function(_, opts)
-      local dap = require("dap")
-      local dapui = require("dapui")
-      local snacks = require("snacks")
-      dapui.setup(opts)
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        snacks.explorer.open({ focus = false, auto_close = true })
-        dapui.open({})
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close({})
-        snacks.explorer.open({ focus = "list", follow_file = true, ignored = true, hidden = true })
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close({})
-      end
-    end,
-  },
-  {
     "snacks.nvim",
     opts = {
+      -- disable snacks words highlight
+      words = { enabled = false },
       dashboard = {
         preset = {
           header = [[
