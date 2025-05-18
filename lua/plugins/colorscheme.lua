@@ -7,6 +7,7 @@ return {
       lackluster.setup({
         disable_plugin = {
           bufferline = true,
+          noice = true,
         },
         tweak_background = {
           normal = color.black, -- main background
