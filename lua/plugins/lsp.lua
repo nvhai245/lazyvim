@@ -3,7 +3,8 @@ return {
   opts = {
     servers = {
       -- will be automatically installed with mason and loaded with lspconfig
-      superhtml = {},
+      html = {},
+      cssls = {},
     },
     inlay_hints = { enabled = false },
   },
