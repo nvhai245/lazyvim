@@ -25,5 +25,14 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "<leader>e",
+        function()
+          Snacks.explorer.open({ focus = "list", follow_file = true, ignored = true, hidden = true })
+        end,
+        desc = "Explorer Snacks (root dir)",
+      },
+    },
   },
 }
